@@ -8,9 +8,9 @@ public class StagingController {
 
     @RequestMapping("/")
     public String index() {
-	String vcap_application = System.getProperty("VCAP_APPLICATION");
+	String vcap_application = System.getenv("VCAP_APPLICATION");
 
-        String timestamp = vcap_application.replace(".*\"started_at\":\"([^\"]*)\".*", "$1");
-        return "Application was staged at: " + timestamp;
+        String timestamp = vcap_application.replaceFirst(".*\"started_at\":\"([^\"]*)\".*", "$1");
+        return "<html><body><h1>Application was staged at: " + timestamp + "</h1></body></html>";
     }
 }

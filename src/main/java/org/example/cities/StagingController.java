@@ -11,6 +11,6 @@ public class StagingController {
 	String vcap_application = System.getenv("VCAP_APPLICATION");
 
         String timestamp = vcap_application.replaceFirst(".*\"started_at\":\"([^\"]*)\".*", "$1");
-        return "<html><body><h1>Application was staged for the Roadshow at: " + timestamp + "</h1></body></html>";
+        return "<html><body><h1>Application was staged at: " + timestamp + "</h1></body></html>";
     }
 }
